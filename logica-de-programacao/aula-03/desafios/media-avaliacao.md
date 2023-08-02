@@ -1,4 +1,3 @@
-
 ## Média das Avaliações de um Fast-Food
 
 #### Em uma empresa de fast-food, após a refeição, os clientes fazem uma avaliação da loja, com nota de 1 a 5 estrelas. Em determinado dia, foram atendidos exatamente 100 clientes, e as notas obtidas foram

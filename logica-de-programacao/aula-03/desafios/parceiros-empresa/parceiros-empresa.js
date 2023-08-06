@@ -10,5 +10,5 @@ const parceirosAgrupados = listaParceiros.reduce((acumulador, item) => {
 })
 
 
-console.table(parceirosAgrupados.PF, ['pessoaFisica', 'parceirosId', 'nome'])
-console.table(parceirosAgrupados.PJ, ['pessoaJuridica', 'parceirosId', 'nome'])
+console.table(parceirosAgrupados.PF)
+console.table(parceirosAgrupados.PJ)

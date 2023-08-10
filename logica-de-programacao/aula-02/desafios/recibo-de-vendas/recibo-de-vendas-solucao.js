@@ -23,10 +23,21 @@ const listaProdutos = venda.reduce((lista, produto) => {
 
 const listaDaVenda = Object.values(listaProdutos)
 
-const totalComDesconto = listaDaVenda.reduce((total, produto) => {
-  return total += (produto.valor * produto.quantidade) - (produto.valor * ((produto.cupom / 100) * produto.quantidade))
-}, 0)
+const totais = {
+  valorTotal: 0,
+  valorTotalDesconto: 0,
+  quantidadeDeProdutos: 0,
+}
 
+const valorTotalDesconto = listaDaVenda.reduce((totais, produto) => {
+  totais.valorTotal += produto.valor * produto.quantidade
+
+  totais.valorTotalDesconto += (produto.valor * produto.quantidade) - (produto.valor * produto.quantidade * (produto.cupom / 100))
+
+  totais.quantidadeDeProdutos += produto.quantidade
+
+  return totais
+}, totais)
 console.log(listaDaVenda)
 
-console.log(totalComDesconto)
+console.log(valorTotalDesconto)

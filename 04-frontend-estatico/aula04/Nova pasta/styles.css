@@ -1,0 +1,7 @@
+#fs-toggle:not(:fullscreen) {
+  background-color: #afa;
+}
+
+#fs-toggle:fullscreen {
+  background-color: #faa;
+}

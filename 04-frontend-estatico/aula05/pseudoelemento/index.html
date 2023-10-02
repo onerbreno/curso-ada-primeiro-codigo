@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+        function changeTypeInput(event) {
+          console.log(event)
+          
+          const inputElement = event.parentElement.firstElementChild
+          inputElement.type = inputElement.type === "text" ? "password" : "text"
+
+          if(event.src === 'https://www.svgrepo.com/show/431616/eye-close.svg') {
+              event.src = 'https://www.svgrepo.com/show/431615/eye-2.svg'
+          }
+          else {
+              event.src = 'https://www.svgrepo.com/show/431616/eye-close.svg'
+          }
+        }
+    </script>
+  </head>
+  <body>
+    <div class="product-group">
+      <div class="product-card">
+        <div class="box-img">
+          <img src="https://source.unsplash.com/random/?banana" />
+        </div>
+        <div class="description">
+          <p class="promocao">Banana Nanica</p>
+          <p class="price">R$ 6,00</p>
+          <button>Adicionar ao carrinho</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="box-img">
+          <img src="https://source.unsplash.com/random/?watermelon" />
+        </div>
+        <div class="description">
+          <p>Melancia docinha</p>
+          <p class="price">R$ 23,00</p>
+          <button>Adicionar ao carrinho</button>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="box-img">
+          <img src="https://source.unsplash.com/random/?kiwi" />
+        </div>
+        <div class="description">
+          <p>Kiwi do agreste</p>
+          <p class="price">R$ 8,70</p>
+          <button>Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+    
+    <div class="input-password">
+        <input type="password">
+        <img onclick="changeTypeInput(this)" src="https://www.svgrepo.com/show/431616/eye-close.svg">
+    </div>
+
+  </body>
+</html>

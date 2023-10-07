@@ -2,24 +2,46 @@
 <html lang="en">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
   <title>Lançar atividade</title>
-  <link rel="stylesheet" href="styles.css">
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 
-  <script src="./script.js" defer></script>
+  <script
+    src="./script.js"
+    defer
+  ></script>
 </head>
 
 <body>
   <div class="container">
 
     <header class="header">
-      <img class="header-logo" src="../public/header-logo.svg"
-        alt="">
+      <img
+        class="header-logo"
+        src="../public/header-logo.svg"
+        alt=""
+      >
 
       <div class="header-content">
         <h1 class="header-title">Adicionar novo projeto</h1>
@@ -37,12 +59,15 @@
           <legend class="hidden">Informações do projeto</legend>
 
           <div class="form-field-group">
-            <label class="hidden" for="project-name">Nome do projeto</label>
+            <label
+              class="hidden"
+              for="project-name"
+            >Nome do projeto</label>
             <input
               data-new-project-input
-              class="input-text" 
-              aria-label="Nome do projeto" 
-              type="text" 
+              class="input-text"
+              aria-label="Nome do projeto"
+              type="text"
               id="project-name"
               name="project-name"
               placeholder="Nome do projeto"
@@ -51,10 +76,13 @@
           </div>
 
           <div class="form-field-group">
-            <label class="hidden" for="project-description">Descrição do projeto</label>
-            <textarea 
-              class="input-textarea" 
-              aria-label="Descrição do projeto" 
+            <label
+              class="hidden"
+              for="project-description"
+            >Descrição do projeto</label>
+            <textarea
+              class="input-textarea"
+              aria-label="Descrição do projeto"
               id="project-description"
               name="project-description"
               placeholder="Descrição do projeto"
@@ -64,14 +92,17 @@
           </div>
 
           <div class="form-field-group">
-            <label class="hidden" for="project-references-url">Link para referências</label>
-            <input 
-              class="input-text" 
-              aria-label="Link para referências" 
-              type="url" 
+            <label
+              class="hidden"
+              for="project-references-url"
+            >Link para referências</label>
+            <input
+              class="input-text"
+              aria-label="Link para referências"
+              type="url"
               id="project-references-url"
               name="project-references-url"
-              placeholder="Link para referências: https://example.com" 
+              placeholder="Link para referências: https://example.com"
               pattern="https://.*"
             />
             <span class="mensagem-erro"></span>
@@ -80,44 +111,50 @@
 
           <div class="form-field-group">
             <span class="input-group">
-              <input 
-                class="input-date" 
-                aria-label="Data de entrega" 
-                type="date" 
+              <input
+                class="input-date"
+                aria-label="Data de entrega"
+                type="date"
                 id="project-due-date"
                 name="project-due-date"
                 placeholder="Data de entrega"
               />
               <span class="mensagem-erro"></span>
 
-              <label class="hidden" for="project-due-date">Data de entrega</label>
-              
+              <label
+                class="hidden"
+                for="project-due-date"
+              >Data de entrega</label>
+
 
             </span>
 
             <span class="input-group">
-              <input 
-                class="input-color" 
-                aria-label="Cor de destaque para o projeto" 
+              <input
+                class="input-color"
+                aria-label="Cor de destaque para o projeto"
                 type="color"
-                id="project-highlight-color" 
-                name="project-highlight-color" 
+                id="project-highlight-color"
+                name="project-highlight-color"
                 placeholder="Cor de destaque para o projeto"
               />
               <span class="mensagem-erro"></span>
 
-              <label class="label-input-color" for="project-highlight-color">Cor de destaque para o projeto</label>
+              <label
+                class="label-input-color"
+                for="project-highlight-color"
+              >Cor de destaque para o projeto</label>
             </span>
           </div>
 
           <div class="form-field-group">
             <span class="input-group">
-              <input 
-                class="input-radio" 
-                type="radio" 
-                id="project-individual" 
-                name="project-participation-type" 
-                value="individual" 
+              <input
+                class="input-radio"
+                type="radio"
+                id="project-individual"
+                name="project-participation-type"
+                value="individual"
                 checked
               />
               <span class="mensagem-erro"></span>
@@ -126,26 +163,37 @@
             </span>
 
             <span class="input-group">
-              <input 
+              <input
                 class="input-radio"
-                type="radio" 
-                id="project-group" 
-                name="project-participation-type" 
-                value="group" 
+                type="radio"
+                id="project-group"
+                name="project-participation-type"
+                value="group"
               />
               <span class="mensagem-erro"></span>
-              
+
               <label for="project-group">Projeto em grupo</label>
             </span>
           </div>
 
           <div class="form-field-group">
-            <label class="hidden" for="project-type">
+            <label
+              class="hidden"
+              for="project-type"
+            >
               Tecnologias que devem ser utilizadas
             </label>
 
-            <select class="input-select" id="project-type" name="project-type">
-              <option value="" disabled selected>Selecione o tipo de projeto</option>
+            <select
+              class="input-select"
+              id="project-type"
+              name="project-type"
+            >
+              <option
+                value=""
+                disabled
+                selected
+              >Selecione o tipo de projeto</option>
               <optgroup label="Prático">
                 <option value="open-scope">Problema com escopo aberto</option>
                 <option value="closed-scope">Problema com escopo fechado</option>
@@ -156,16 +204,24 @@
             </select>
             <span class="mensagem-erro"></span>
 
-            
+
           </div>
 
           <div class="input-group">
-            <input class="input-checkbox" aria-label="Permitir entrega de múltiplos arquivos" type="checkbox"
-              id="allow-multiple-files" checked>
+            <input
+              class="input-checkbox"
+              aria-label="Permitir entrega de múltiplos arquivos"
+              type="checkbox"
+              id="allow-multiple-files"
+              checked
+            >
             <label for="allow-multiple-files">Permitir entrega de múltiplos arquivos</label>
           </div>
 
-          <button class="primary-button" type="submit">Lançar projeto</button>
+          <button
+            class="primary-button"
+            type="submit"
+          >Lançar projeto</button>
         </fieldset>
       </form>
     </main>

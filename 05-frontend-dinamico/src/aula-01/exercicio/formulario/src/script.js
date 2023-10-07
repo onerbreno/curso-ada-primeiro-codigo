@@ -3,12 +3,17 @@ const form = document.forms['new-project-form']
 const formField = form.querySelectorAll("input, textarea, select")
 
 formField.forEach(field => field.addEventListener("blur", (event) => {
-  verificaCampo(field)
+  fieldVerify(field)
 }))
 
-function verificaCampo(field) {
+function insertFieldError(field, error) {
+  const display = field.nextElementSibling
+  display.innerHTML = error
+}
+
+function fieldVerify(field) {
   if (field.value === "") {
-    console.error('Campo vazio')
+    insertFieldError(field, 'Campo vazio')
   }
 
   // try {

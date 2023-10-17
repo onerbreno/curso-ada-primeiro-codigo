@@ -2,62 +2,76 @@ const form = document.forms['new-project-form']
 
 const formField = form.querySelectorAll("input, textarea, select")
 
-formField.forEach(field => field.addEventListener("blur", (event) => {
-  fieldVerify(field)
-}))
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
+})
 
-function insertFieldError(field, error) {
-  const display = field.nextElementSibling
-  display.innerHTML = error
+formField.forEach(field => {
+  field.addEventListener("blur", (event) => fieldValidator(field))  
+  field.addEventListener("invalid", (event) => {
+    event.preventDefault()
+    fieldValidator(field)
+  })
+})
+
+const typeErrors = [
+    'valueMissing',
+    'typeMismatch',
+    'patternMismatch',
+    'tooShort',
+    'customError'
+]
+
+
+const messagesErrors = {
+  "project-name": {
+    valueMissing: "O campo de nome não pode estar vazio.",
+    patternMismatch: "Por favor, preencha um nome válido.",
+    tooShort: "Por favor, preencha um nome válido."
+  },  
+  "project-description": {
+    valueMissing: "A descrição não pode estar vazia.",
+    tooShort: "Por favor, preencha um nome válido."
+  },
+  "project-references-url": {
+      valueMissing: "A URL não pode estar vazia.",
+      patternMismatch: "Por favor, preencha uma URL válida.",
+  },
+  "project-highlight-color": {
+      valueMissing: 'O campo de cor de destaque não pode estar vazio.',
+      patternMismatch: "Por favor, preencha uma cor de destaque hexadecimal válida.",
+  },
+  "project-due-date": {
+      valueMissing: 'O campo de data não pode estar vazio.',
+      customError: 'Você deve ser maior que 18 anos para se cadastrar.'
+  },
+  "project-participation-type": {
+      valueMissing: 'Você deve aceitar nossos termos antes de continuar.',
+  }
 }
 
-function fieldVerify(field) {
-  if (field.value === "") {
-    insertFieldError(field, 'Campo vazio')
+function insertError(field, error) {
+  const display = field.nextElementSibling
+  display.innerHTML = error
+  if (error) {
+    field.classList.add('input-error')
+  } else {
+    field.classList.remove('input-error')
+
   }
 
-  // try {
-  //   switch (field.type) {
-  //     case "text":
-  //       if (field.value === "") {
+}
 
-  //       }
+function fieldValidator(field) {
+  let messageError = ""
+  field.setCustomValidity('');
 
-  //       if (field.value.length > 56) {
-
-  //       };
-  //     case "textarea":
-  //       if (field.value === "") {
-
-  //       }
-
-  //       if (field.value.length > 56) {
-
-  //       };
-
-
-  //     case "color":
-  //       const regexHexColorVerify = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-
-  //       if (regexHexColorVerify.test(field.value)) {
-  //         throw new Error("Cor inválida.")
-  //       }
-  //       break;
-  //     case "date":
-  //       console.log('date')
-  //       break;
-
-  //     case "url":
-  //       console.log('url')
-  //       break;
-
-  //     default:
-  //       return false
-  //       break;
-  //   }
-
-  //   return true
-  // } catch (e) {
-
-  // }
+  typeErrors.forEach(erro => {
+    console.log(field.validity)
+      if (field.validity[erro]) {
+        messageError = messagesErrors[field.name][erro]
+      }
+  })
+  
+  messageError ? insertError(field, messageError) : insertError(field, "")
 }

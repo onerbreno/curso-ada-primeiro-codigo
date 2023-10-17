@@ -15,6 +15,11 @@
   outline: 1px solid var(--green500);
 }
 
+
+.input-error {
+  outline: 1px solid red;
+}
+
 body {
   background-color: var(--gray900);
   color: var(--white);
@@ -90,6 +95,20 @@ textarea {
   gap: 0.5rem;
 }
 
+.input-date {
+  max-width: max-content;
+}
+
+.input-error-container {
+  width: 100%;
+  display: grid;
+  gap: 0.5rem;
+
+  & > .mensagem-erro {
+    color: red;
+  }
+}
+
 .input-color {
   height: 2.5rem;
   width: 2.5rem;
@@ -113,8 +132,10 @@ textarea {
   background: var(--green500);
   padding: 1rem;
   border: 0;
+  cursor: pointer;
   border-radius: 5px;
 }
+
 
 .primary-button:hover {
   opacity: 0.7;

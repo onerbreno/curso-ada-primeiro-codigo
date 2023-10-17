@@ -63,16 +63,22 @@
               class="hidden"
               for="project-name"
             >Nome do projeto</label>
-            <input
-              data-new-project-input
-              class="input-text"
-              aria-label="Nome do projeto"
-              type="text"
-              id="project-name"
-              name="project-name"
-              placeholder="Nome do projeto"
-            />
-            <span class="mensagem-erro"></span>
+            <div class="input-error-container">
+              <input
+                class="input-text"
+                
+                aria-label="Nome do projeto"
+                placeholder="Nome do projeto"
+                type="text"
+                id="project-name"
+                name="project-name"
+                
+                minlength="3"
+                required
+              />
+              <span class="mensagem-erro"></span>
+            </div>
+
           </div>
 
           <div class="form-field-group">
@@ -80,14 +86,18 @@
               class="hidden"
               for="project-description"
             >Descrição do projeto</label>
-            <textarea
-              class="input-textarea"
-              aria-label="Descrição do projeto"
-              id="project-description"
-              name="project-description"
-              placeholder="Descrição do projeto"
-            ></textarea>
-            <span class="mensagem-erro"></span>
+            <div class="input-error-container">
+              <textarea
+                class="input-textarea"
+                
+                aria-label="Descrição do projeto"
+                id="project-description"
+                name="project-description"
+                placeholder="Descrição do projeto"
+                required
+              ></textarea>
+              <span class="mensagem-erro"></span>
+            </div>
 
           </div>
 
@@ -96,31 +106,36 @@
               class="hidden"
               for="project-references-url"
             >Link para referências</label>
-            <input
-              class="input-text"
-              aria-label="Link para referências"
-              type="url"
-              id="project-references-url"
-              name="project-references-url"
-              placeholder="Link para referências: https://example.com"
-              pattern="https://.*"
-            />
-            <span class="mensagem-erro"></span>
+            <div class="input-error-container">
+              <input
+                class="input-text"
+                aria-label="Link para referências"
+                type="url"
+                id="project-references-url"
+                name="project-references-url"
+                placeholder="Link para referências: https://github.com/"
+                pattern="https://.*"
+                required
 
+              />
+              <span class="mensagem-erro"></span>
+            </div> 
           </div>
 
           <div class="form-field-group">
             <span class="input-group">
-              <input
-                class="input-date"
-                aria-label="Data de entrega"
-                type="date"
-                id="project-due-date"
-                name="project-due-date"
-                placeholder="Data de entrega"
-              />
-              <span class="mensagem-erro"></span>
-
+              <div class="input-error-container">
+                <input
+                  class="input-date"
+                  aria-label="Data de entrega"
+                  type="date"
+                  id="project-due-date"
+                  name="project-due-date"
+                  placeholder="Data de entrega"
+                  required
+                />
+                <span class="mensagem-erro"></span>
+              </div>
               <label
                 class="hidden"
                 for="project-due-date"
@@ -137,6 +152,8 @@
                 id="project-highlight-color"
                 name="project-highlight-color"
                 placeholder="Cor de destaque para o projeto"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                required 
               />
               <span class="mensagem-erro"></span>
 
@@ -156,6 +173,7 @@
                 name="project-participation-type"
                 value="individual"
                 checked
+                required
               />
               <span class="mensagem-erro"></span>
 
@@ -169,6 +187,7 @@
                 id="project-group"
                 name="project-participation-type"
                 value="group"
+                required
               />
               <span class="mensagem-erro"></span>
 

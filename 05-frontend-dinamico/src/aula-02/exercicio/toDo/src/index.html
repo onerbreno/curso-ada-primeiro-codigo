@@ -5,15 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 <body>
-  <form name="todo-form" action="">
-    <fieldset>
-      <legend>Informações da tarefa</legend>
-      <label for="">Nome da tarefa</label>
-      <input type="text" name="task-name" placeholder="Nome da tarefa">
-    </fieldset>
-  </form>
+  <header>
+    <!-- <h1>ToDo List</h1> -->
+  </header>
+  <main>
+    <form name="todo-form" action="post">
+      <fieldset>
+        <legend>Informações da tarefa</legend>
+        <label for="">Nome da tarefa</label>
+        <input type="text" name="task-name" required placeholder="Nome da tarefa">
+        <button>Adicionar tarefa</button>
+      </fieldset>
+    </form>
+
+    <div class="task-list-container">
+      <ul class="task-list">
+        <!-- <li class="task-item">
+          <p>Comprar maça</p>
+          <input type="checkbox" name="" id="">
+        </li> -->
+      </ul>
+    </div>
+  </main>
+  
+  
 </body>
 </html>

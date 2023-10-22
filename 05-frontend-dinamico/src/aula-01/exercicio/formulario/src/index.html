@@ -114,7 +114,7 @@
                 id="project-references-url"
                 name="project-references-url"
                 placeholder="Link para referências: https://github.com/"
-                pattern="https://.*"
+                pattern="http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?"
                 required
 
               />
@@ -153,6 +153,7 @@
                 name="project-highlight-color"
                 placeholder="Cor de destaque para o projeto"
                 pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                value="#a6f750"
                 required 
               />
               <span class="mensagem-erro"></span>
@@ -203,25 +204,28 @@
               Tecnologias que devem ser utilizadas
             </label>
 
-            <select
-              class="input-select"
-              id="project-type"
-              name="project-type"
-            >
-              <option
-                value=""
-                disabled
-                selected
-              >Selecione o tipo de projeto</option>
-              <optgroup label="Prático">
-                <option value="open-scope">Problema com escopo aberto</option>
-                <option value="closed-scope">Problema com escopo fechado</option>
-              </optgroup>
-              <optgroup label="Teórico">
-                <option value="theoretical">Projeto teórico</option>
-              </optgroup>
-            </select>
-            <span class="mensagem-erro"></span>
+            <div class="input-error-container">
+              <select
+                class="input-select"
+                id="project-type"
+                name="project-type"
+                required
+              >
+                <option
+                  value=""
+                  disabled
+                  selected
+                >Selecione o tipo de projeto</option>
+                <optgroup label="Prático">
+                  <option value="open-scope">Problema com escopo aberto</option>
+                  <option value="closed-scope">Problema com escopo fechado</option>
+                </optgroup>
+                <optgroup label="Teórico">
+                  <option value="theoretical">Projeto teórico</option>
+                </optgroup>
+              </select>
+              <span class="mensagem-erro"></span>
+            </div>
 
 
           </div>
@@ -235,6 +239,8 @@
               checked
             >
             <label for="allow-multiple-files">Permitir entrega de múltiplos arquivos</label>
+            <span class="mensagem-erro"></span>
+
           </div>
 
           <button

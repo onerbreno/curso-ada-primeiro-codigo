@@ -29,6 +29,9 @@ const messagesErrors = {
     patternMismatch: "Por favor, preencha um nome válido.",
     tooShort: "Por favor, preencha um nome válido."
   },  
+  "project-type": {
+    valueMissing: "Escolha uma opção válida.",
+  },  
   "project-description": {
     valueMissing: "A descrição não pode estar vazia.",
     tooShort: "Por favor, preencha um nome válido."
@@ -51,26 +54,27 @@ const messagesErrors = {
 }
 
 function insertError(field, error) {
-  const display = field.nextElementSibling
+  const display = field.parentNode.querySelector(".mensagem-erro")
   display.innerHTML = error
+  
   if (error) {
     field.classList.add('input-error')
   } else {
     field.classList.remove('input-error')
-
   }
 
 }
 
 function fieldValidator(field) {
+  console.log(field.name)
   let messageError = ""
+  console.log(field.validity)
   field.setCustomValidity('');
 
   typeErrors.forEach(erro => {
-    console.log(field.validity)
-      if (field.validity[erro]) {
-        messageError = messagesErrors[field.name][erro]
-      }
+    if (field.validity[erro]) {
+      messageError = messagesErrors[field.name][erro]
+    }
   })
   
   messageError ? insertError(field, messageError) : insertError(field, "")

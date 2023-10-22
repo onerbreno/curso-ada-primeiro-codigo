@@ -1,0 +1,97 @@
+:root {
+  --white: #E1E1E1;
+  --green500: #A6F750;
+  --gray900: #0F1216;
+  --gray700: #181C23;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--gray900);
+  color: var(--white);
+}
+
+ul {
+  list-style: none;
+}
+
+svg {
+  fill: var(--white);
+}
+
+svg:hover {
+  fill: red;
+}
+
+.container {
+  display: grid;
+  gap: 4rem;
+  
+  max-width: 40.3125rem;
+  padding: 64px 0;
+  margin: 0 auto;
+}
+
+.joke-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+
+.card {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--gray700);
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.joke-content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.joke-delivery {
+  word-break: break-all;
+}
+
+.favorites-jokes-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.favorite-jokes-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.button {
+  cursor: pointer;
+  border: 0;
+}
+
+
+.button-transparent {
+  background: transparent;
+}
+
+.primary-button {
+  background: var(--green500);
+  font-weight: 700;
+  height: 45px;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none ;
+}

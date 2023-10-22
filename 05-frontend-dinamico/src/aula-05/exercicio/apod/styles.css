@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.imageDisplay {
+  object-fit: cover;
+}
+
+.image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.favoriteImages {
+  display: flex;
+  flex-wrap: wrap;
+
+  & .image {
+    aspect-ratio: 16 / 9;
+    width: 200px;
+  }
+}
+
+.nextImageButton {
+  position: absolute;
+}

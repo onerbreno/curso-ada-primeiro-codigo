@@ -66,9 +66,7 @@ function insertError(field, error) {
 }
 
 function fieldValidator(field) {
-  console.log(field.name)
   let messageError = ""
-  console.log(field.validity)
   field.setCustomValidity('');
 
   typeErrors.forEach(erro => {

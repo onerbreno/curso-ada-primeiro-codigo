@@ -1,0 +1,70 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  width: 200px;
+  padding: 0 6px 0 6px;
+  background-color: var(--div-bg);
+  border: 3px solid var(--div-border);
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  line-height: 50px;
+  font-size: 18px;
+  height: 50px;
+  width: 100%;
+  color: #181C23;
+  border-width: 1px;
+  border-style: none;
+  padding: 0 7px 0 7px;
+  font-weight: 800;
+}
+
+.input-group input[type="number"] {
+  width: 100px;
+  text-align: center;
+  height: 80px;
+  border: 0px;
+  background-color: var(--div-bg);
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+.input-group input[type="number"]:focus {
+  outline: none;
+}
+
+.input-valid {
+  color: #8B6B52;
+}
+
+.input-group .button-group {
+  display: flex;
+  justify-content: center;
+}
+
+.input-group button {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin: 15px 15px;
+  cursor: pointer;
+}
+
+.input-group__button--small {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  background-color: #8B6B52;
+  color: #DB9E69;
+  font-size: 34px;
+  font-weight: bold;
+  height: 40px;
+  width: 43px;
+  margin: 10px 5px 0px 5px;
+  border-radius: 5px;
+}

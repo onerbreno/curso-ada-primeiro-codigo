@@ -4,6 +4,8 @@ import { QuantifyPeopleCard } from './components/QuantifyPeopleCard'
 
 function App() {
   const userTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const [people, setPeople] = useState({men: 0, women: 0, kid: 0})
+
   const [isDarkTheme, setIsDarkTheme] = useState(userTheme ?? true);
 
   useEffect(() => {
@@ -20,6 +22,18 @@ function App() {
   const handleSwitchTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
+  const handleCalculate = () => {
+    console.log(people)
+  }
+
+  const handleChangePeople = (quantify, category) => {
+
+    console.log(quantify)
+    setPeople((state) => {
+      return {...state, [category]: quantify}
+    })
+  }
 
   // function handleSwitchTheme() {
   //   document.body.classList.toggle('light-theme')
@@ -45,9 +59,9 @@ function App() {
 
           <h3>Teste</h3>
           <div className="row-first">
-            <QuantifyPeopleCard category="women" title="Mulheres"/>
-            <QuantifyPeopleCard category="men" title="Homens"/>
-            <QuantifyPeopleCard category="kid" title="Crianças"/>
+            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="women" title="Mulheres"/>
+            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="men" title="Homens"/>
+            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="kid" title="Crianças"/>
           </div>
 
           <div className="row">
@@ -55,7 +69,7 @@ function App() {
               <p id="invalid-input" style={{ visibility: "hidden" }}>Por favor, insira somente números!</p>
               <p id="no-input" style={{ visibility: "hidden" }}>Por favor, selecione a quantidade de pessoas!</p>
 
-              <a href="#" className="default-button">Calcular</a>
+              <a className="default-button" onClick={handleCalculate}>Calcular</a>
             </div>
           </div>
         </div>

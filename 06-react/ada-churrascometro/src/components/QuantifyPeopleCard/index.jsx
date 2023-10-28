@@ -3,21 +3,32 @@ import PropTypes from 'prop-types'
 
 import './styles.css'
 
-export function QuantifyPeopleCard({ category, title }) {
+export function QuantifyPeopleCard({ category, title, onChangePeople }) {
   const [quantify, setQuantify] = useState(0);
 
   const handleIncrement = () => {
-    setQuantify(quantify + 1)
+
+    const quantifyPeople = quantify + 1
+
+    setQuantify(quantifyPeople)
+    onChangePeople(quantifyPeople, category)
   }
 
   const handleDecrement = () => {
     if (quantify > 0) {
-      setQuantify(quantify - 1)
+      const quantifyPeople = quantify - 1
+
+      setQuantify(quantifyPeople)
+      onChangePeople(quantifyPeople, category)
     }
   }
 
   const handleInputChange = (event) => {
-    setQuantify(Number(event.target.value))
+    const quantifyPeople = Number(event.target.value)
+    console.log(quantifyPeople)
+
+    setQuantify(quantifyPeople)
+    onChangePeople(quantifyPeople, category)
   }
 
   return (
@@ -35,4 +46,5 @@ export function QuantifyPeopleCard({ category, title }) {
 QuantifyPeopleCard.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  onChangePeople: PropTypes.func.isRequired
 }

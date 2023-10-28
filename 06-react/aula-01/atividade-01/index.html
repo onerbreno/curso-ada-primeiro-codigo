@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Churrascômetro</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="shortcut icon" href="./assets/icone-de-churrasco.ico" type="image/x-icon">
+    </head>
+    <body>
+        <app>
+            <div class="container">
+                <h1>Churrascômetro</h1>
+                <div class="calculator">
+                    <h3>Precisa de uma ajudinha com o churrasco? :)
+                        <br><br>
+                        Quantas pessoas vão participar?
+                    </h3>
+                    <div class="row-first">
+                        <div class="input-group"><label for="men">Homens</label><input type="number" id="men" value="0" class="input-valid">
+                            <div class="button-group">
+                                <button class="input-group__button--small">-</button>
+                                <button class="input-group__button--small">+</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="women">Mulheres</label><input type="number" id="women" value="0" class="input-valid">
+                            <div class="button-group"><button class="input-group__button--small">-</button>
+                                <button class="input-group__button--small">+</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="kid">Crianças</label>
+                            <input type="number" id="kid" value="0" class="input-valid">
+                            <div class="button-group"><button class="input-group__button--small">-</button>
+                                <button class="input-group__button--small">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <p id="invalid-input" style="visibility: hidden;">Por favor, insira somente números!</p>
+                            <p id="no-input" style="visibility: hidden;">Por favor, selecione a quantidade de pessoas!</p>
+                            <a href="#" class="default-button">Calcular</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="theme-container"><label id="label-theme-text" for="input-theme">Tema Escuro</label>
+                    <label class="switch">
+                        <input type="checkbox" id="input-theme" checked="checked">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </app>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Carne",
+    "unit": "kg",
+    "previewURL": "https://static.vecteezy.com/system/resources/previews/017/777/331/original/raw-meat-a-piece-of-fresh-red-meat-on-a-transparent-isolated-background-png.png",
+    "quantifyPerMen": 0.4,
+    "quantifyPerWomen": 0.32,
+    "quantifyPerKid": 0.2
+  },
+  {
+    "name": "Pão de alho",
+    "unit": "unid",
+    "previewURL": "https://gkpb.com.br/wp-content/uploads/2023/07/pizza-de-pao-de-alho-dominos1.png",
+    "quantifyPerMen": 2,
+    "quantifyPerWomen": 2,
+    "quantifyPerKid": 1
+  },
+  {
+    "name": "Carvão",
+    "unit": "kg",
+    "previewURL": "https://images.tcdn.com.br/img/img_prod/948333/carvao_vegetal_karvel_4kg_495_1_a3e13ca4c9c2b304bcc3ab59fa9b34af.png",
+    "quantifyPerMen": 1,
+    "quantifyPerWomen": 1,
+    "quantifyPerKid": 1
+  },
+  {
+    "name": "Sal",
+    "unit": "kg",
+    "previewURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVrCwma2hfawpDpGGubfuDsNFONUY8E2VtAAHjNHRYzbZD6SXkaEyX_1u5nJPLQ9_h2l8&usqp=CAU",
+    "quantifyPerMen": 0.04,
+    "quantifyPerWomen": 0.04,
+    "quantifyPerKid": 0.04
+  },
+  {
+    "name": "Gelo",
+    "unit": "kg",
+    "quantityPerGroup": 5,
+    "requiredGroupSize": 10
+  },
+  {
+    "name": "Refrigerante",
+    "unit": "L",
+    "quantityPerGroup": 2,
+    "requiredGroupSize": 5
+  },
+  {
+    "name": "Água",
+    "unit": "L",
+    "quantityPerGroup": 1,
+    "requiredGroupSize": 5
+  }
+]

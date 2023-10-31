@@ -1,42 +1,31 @@
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import './styles.css'
 
-export function QuantifyPeopleCard({ category, title, onChangePeople }) {
-  const [quantify, setQuantify] = useState(0);
-
+export function QuantifyPeopleCard(props) {
   const handleIncrement = () => {
-
-    const quantifyPeople = quantify + 1
-
-    setQuantify(quantifyPeople)
-    onChangePeople(quantifyPeople, category)
+    const newQuantify = props.quantify + 1
+    props.onChangePeople(newQuantify, props.category)
   }
 
   const handleDecrement = () => {
-    if (quantify > 0) {
-      const quantifyPeople = quantify - 1
-
-      setQuantify(quantifyPeople)
-      onChangePeople(quantifyPeople, category)
+    if (props.quantify > 0) {
+      const newQuantify = props.quantify - 1
+      props.onChangePeople(newQuantify, props.category)
     }
   }
 
   const handleInputChange = (event) => {
     const quantifyPeople = Number(event.target.value)
-    console.log(quantifyPeople)
-
-    setQuantify(quantifyPeople)
-    onChangePeople(quantifyPeople, category)
+    props.onChangePeople(quantifyPeople, props.category)
   }
 
   return (
     <div className="input-group">
-      <label htmlFor={category}>{title}</label>
-      <input type="number" id={category} value={quantify} onChange={handleInputChange} className="input-valid" />
-      <div className="button-group">
+      <label htmlFor={props.category}>{props.label}</label>
+      <div className='button-group'>
         <button className="input-group__button--small" onClick={handleDecrement}>-</button>
+        <input type="number" id={props.category} value={props.quantify} onChange={handleInputChange} className="input-valid" />
         <button className="input-group__button--small" onClick={handleIncrement}>+</button>
       </div>
     </div>
@@ -45,6 +34,7 @@ export function QuantifyPeopleCard({ category, title, onChangePeople }) {
 
 QuantifyPeopleCard.propTypes = {
   category: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  onChangePeople: PropTypes.func.isRequired
+  label: PropTypes.string.isRequired,
+  quantify: PropTypes.number.isRequired,
+  onChangePeople: PropTypes.func.isRequired,
 }

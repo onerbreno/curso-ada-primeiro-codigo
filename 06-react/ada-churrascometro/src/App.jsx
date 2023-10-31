@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import { QuantifyPeopleCard } from './components/QuantifyPeopleCard'
+import { ResultsList } from './components/ResultsList'
+
+import products from "../products.json";
 
 function App() {
   const userTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const [people, setPeople] = useState({men: 0, women: 0, kid: 0})
-
   const [isDarkTheme, setIsDarkTheme] = useState(userTheme ?? true);
+
+  const [people, setPeople] = useState({ men: 0, women: 0, kid: 0 })
+  const [results, setResults] = useState([])
 
   useEffect(() => {
     const body = document.body;
     body.classList.toggle('light-theme', !isDarkTheme);
-    
+
     // if (!isDarkTheme) {
     //   body.classList.add('light-theme');
     // } else {
@@ -23,26 +27,46 @@ function App() {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  const handleCalculate = () => {
-    console.log(people)
-  }
-
   const handleChangePeople = (quantify, category) => {
-
-    console.log(quantify)
     setPeople((state) => {
-      return {...state, [category]: quantify}
+      return { ...state, [category]: quantify }
     })
   }
 
-  // function handleSwitchTheme() {
-  //   document.body.classList.toggle('light-theme')
+  const calculateQuantifyProducts = () => {
+    const totalPeople = Object.values(people).reduce((acc, curr) => acc + curr, 0)
 
-  //   const allElements = document.querySelectorAll("*")
-  //   allElements.forEach((element) => {
-  //     element.classList.toggle('light-theme')
-  //   })
-  // }
+    const results = products.map(product => {
+      // const quantify = product.requiredGroupSize
+      //   ? Math.floor(totalPeople / product.requiredGroupSize)
+      //   : (people.men * product.quantifyPerMen) + (people.women * product.quantifyPerWomen) + (people.kid * product.quantifyPerKid)
+
+      // return {
+      //   name: product.name,
+      //   quantify: quantify.toFixed(2).replace('.', ','),
+      // }
+      if (product.requiredGroupSize) {
+        const quantify = Math.floor(totalPeople / product.requiredGroupSize) * product.quantityPerGroup
+
+        return {
+          ...product,
+          quantify
+        }
+      }
+
+      const quantify = (people.men * product.quantifyPerMen) + (people.women * product.quantifyPerWomen) + (people.kid * product.quantifyPerKid)
+      return {
+        ...product,
+        quantify: quantify.toFixed(2).replace('.', ','),
+      }
+    })
+
+    return results
+  }
+
+  const handleCalculate = () => {
+    setResults(calculateQuantifyProducts())
+  }
 
   return (
     <main>
@@ -57,25 +81,46 @@ function App() {
             <span>Quantas pessoas vão participar?</span>
           </h3>
 
-          <h3>Teste</h3>
           <div className="row-first">
-            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="women" title="Mulheres"/>
-            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="men" title="Homens"/>
-            <QuantifyPeopleCard onChangePeople={handleChangePeople} category="kid" title="Crianças"/>
+            <QuantifyPeopleCard 
+              onChangePeople={handleChangePeople} 
+              quantify={people.women} 
+              category="women" 
+              label="Mulheres" 
+            />
+            <QuantifyPeopleCard 
+              onChangePeople={handleChangePeople} 
+              quantify={people.men} 
+              category="men" 
+              label="Homens" 
+            />
+            <QuantifyPeopleCard 
+              onChangePeople={handleChangePeople} 
+              quantify={people.kid} 
+              category="kid" 
+              label="Crianças" 
+            />
+
+            <button
+              className="default-button"
+              onClick={handleCalculate}
+              disabled={!people.kid && !people.women && !people.men}
+            >
+              Calcular lista de compras
+            </button>
           </div>
 
           <div className="row">
-            <div>
-              <p id="invalid-input" style={{ visibility: "hidden" }}>Por favor, insira somente números!</p>
-              <p id="no-input" style={{ visibility: "hidden" }}>Por favor, selecione a quantidade de pessoas!</p>
 
-              <a className="default-button" onClick={handleCalculate}>Calcular</a>
-            </div>
+            {results.length > 0 && (
+              <ResultsList results={results} />
+            )}
+
           </div>
         </div>
         <div className="theme-container"><label id="label-theme-text" htmlFor="input-theme">Tema Escuro</label>
           <label className="switch">
-            <input type="checkbox" id="input-theme" defaultChecked={isDarkTheme} onChange={handleSwitchTheme}/>
+            <input type="checkbox" id="input-theme" defaultChecked={isDarkTheme} onChange={handleSwitchTheme} />
             <span className="slider"></span>
           </label>
         </div>

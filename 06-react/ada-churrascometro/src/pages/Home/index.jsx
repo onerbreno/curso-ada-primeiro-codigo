@@ -4,6 +4,7 @@ import { ResultsList } from '../../components/ResultsList'
 import './styles.css'
 
 import products from "../../../products.json";
+import { Link } from "react-router-dom";
 
 
 export function Home() {
@@ -79,23 +80,25 @@ export function Home() {
 
           <div className="row-first">
             <QuantifyPeopleCard
-              onChangePeople={handleChangePeople} 
-              quantify={people.women} 
-              category="women" 
-              label="Mulheres" 
+              onChangePeople={handleChangePeople}
+              quantify={people.women}
+              category="women"
+              label="Mulheres"
             />
-            <QuantifyPeopleCard 
-              onChangePeople={handleChangePeople} 
-              quantify={people.men} 
-              category="men" 
-              label="Homens" 
+            <QuantifyPeopleCard
+              onChangePeople={handleChangePeople}
+              quantify={people.men}
+              category="men"
+              label="Homens"
             />
-            <QuantifyPeopleCard 
-              onChangePeople={handleChangePeople} 
-              quantify={people.kid} 
-              category="kid" 
-              label="Crianças" 
+            <QuantifyPeopleCard
+              onChangePeople={handleChangePeople}
+              quantify={people.kid}
+              category="kid"
+              label="Crianças"
             />
+
+            <Link to="/results">Calcular lista de compras</Link>
 
             <button
               className="default-button"

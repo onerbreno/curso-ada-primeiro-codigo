@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Churrascômetro</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="shortcut icon" href="./assets/icone-de-churrasco.ico" type="image/x-icon">
+    </head>
+    <body>
+        <app>
+            <div class="container">
+                <h1>Churrascômetro</h1>
+                <div class="calculator">
+                    <div>
+                        <div class="result-total-guest">
+                            <p>Confira a lista para o seu churrasco!</p>
+                            <p id="total-guest">0 convidado</p>
+                            <span class="guest-list">0 homem</span>
+                            <span class="guest-list">0 mulheres</span>
+                            <span class="guest-list">0 crianças</span>
+                        </div>
+                        <div class="input-group-result">
+                            <div id="header-result">
+                                <p>ITEM</p>
+                                <p>QUANTIDADE</p>
+                            </div>
+                            <ul class="results">
+                                <li><strong>Carne</strong><span>0.0 kg</span></li>
+                                <li><strong>Pão de Alho</strong><span>0 unidades</span></li>
+                                <li><strong>Refrigerante</strong><span>1 garrafa de 2 L</span></li>
+                                <li><strong>Água</strong><span>0 garrafa de 1 L</span></li>
+                                <li><strong>Carvão</strong><span>0 kg</span></li>
+                                <li><strong>Sal</strong><span>0.00 kg</span></li>
+                                <li><strong>Gelo</strong><span>0.0 kg</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <a href="index.html" class="default-button">Novo cálculo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="theme-container"><label id="label-theme-text" for="input-theme">Tema Escuro</label>
+                    <label class="switch">
+                        <input type="checkbox" id="input-theme" checked="checked">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </app>
+    </body>
+</html>
